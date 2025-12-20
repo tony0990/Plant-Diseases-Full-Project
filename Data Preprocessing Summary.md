@@ -6,8 +6,11 @@ Effective data preprocessing is a critical step to ensure model robustness, prev
 
 ### 🔹 Image Loading and Resizing
 - All images were loaded as **RGB images**.
-- Images were resized to **224 × 224 pixels**, which is the standard input size for the selected pretrained models.
-- This ensures compatibility with pretrained ImageNet weights.
+- Images were resized to a configurable resolution:
+  - **224 × 224** (default, optimized for pretrained ImageNet models)
+  - **256 × 256** (optional, for higher spatial detail)
+- The input size can be selected based on the trade-off between **accuracy and computational cost**.
+- Using standard input sizes ensures compatibility with pretrained ImageNet weights.
 
 ---
 
@@ -44,11 +47,10 @@ Augmentation layers were embedded **inside the model architecture**, ensuring:
 ---
 
 ### 🔹 Model-Specific Preprocessing
-Each pretrained model uses a specific input normalization strategy.
-
+- Each pretrained architecture uses a specific input normalization strategy.
 - The appropriate `preprocess_input` function from `tf.keras.applications` was applied.
-- This step aligns input image distributions with those used during ImageNet pretraining.
-- Correct preprocessing significantly improves transfer learning performance.
+- This aligns the input image distribution with the ImageNet pretraining regime.
+- Correct preprocessing is essential for effective transfer learning.
 
 ---
 
@@ -56,15 +58,15 @@ Each pretrained model uses a specific input normalization strategy.
 - Images were converted to `float32` format.
 - TensorFlow `tf.data` pipelines were used for:
   - Efficient batching
-  - Prefetching
   - Parallel data loading
-- These optimizations reduce training time and improve GPU utilization.
+  - Prefetching
+- These optimizations reduce training time and improve hardware utilization.
 
 ---
 
 ### 🔹 Consistency Across Training and Deployment
 - All preprocessing steps were preserved inside the model graph.
-- This ensures identical behavior during:
+- This guarantees identical behavior during:
   - Training
   - Validation
   - Testing
@@ -73,5 +75,5 @@ Each pretrained model uses a specific input normalization strategy.
 ---
 
 ### ✅ Summary
-The preprocessing pipeline ensures clean data handling, prevents data leakage, improves model generalization, and enables seamless deployment across different environments.
+The preprocessing pipeline provides flexibility in input resolution (224×224 or 256×256), prevents data leakage, improves model generalization, and ensures reproducible performance across different environments.
 
