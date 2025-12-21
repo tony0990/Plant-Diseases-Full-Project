@@ -1,7 +1,0 @@
-tensorflow>=2.10
-numpy
-pandas
-matplotlib
-opencv-python
-scikit-learn
-jupyter
