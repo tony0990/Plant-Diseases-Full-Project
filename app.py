@@ -23,6 +23,7 @@ APP_HEIGHT = 550
 # ==========================================================
 # PATHS
 # ==========================================================
+PROJECT_ROOT = Path(r"C:\Users\tonyh\Documents\GitHub\Plant-Diseases-Full-Project")
 FX_DIR = PROJECT_ROOT / "fx"
 ALL_MODELS_DIR = PROJECT_ROOT / "All Models"
 TEST_DATASET_DIR = PROJECT_ROOT / "test dataset"
@@ -36,6 +37,7 @@ MODEL_FILES = {
     "EfficientNetB3": ALL_MODELS_DIR / "best_finetuned_model.keras",
     "ResNet50": ALL_MODELS_DIR / "resnet50_finetuned_final.keras",
     "InceptionV3": ALL_MODELS_DIR / "inception_model.keras",
+    "DenseNet121": ALL_MODELS_DIR / "densenet_best_model.keras",
 }
 
 # Model input sizes and preprocessing functions
@@ -51,6 +53,10 @@ MODEL_CONFIG = {
     "InceptionV3": {
         "size": (299, 299),  # InceptionV3 uses 299x299
         "preprocess": tf.keras.applications.inception_v3.preprocess_input
+    },
+    "DenseNet121": {
+        "size": (256, 256),  # Using 256x256 as requested
+        "preprocess": tf.keras.applications.densenet.preprocess_input
     },
 }
 
