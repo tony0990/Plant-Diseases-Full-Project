@@ -158,7 +158,3 @@ The final trained model was converted to **TensorFlow Lite**:
 - Faster inference
 - Suitable for Android and iOS deployment
 
----
-
-## 📁 Repository Structure
-
