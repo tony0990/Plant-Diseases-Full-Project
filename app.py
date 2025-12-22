@@ -402,7 +402,7 @@ def main():
             # Upload button
             pygame.draw.rect(screen, BLUE, upload_rect, border_radius=8)
             pygame.draw.rect(screen, WHITE, upload_rect, 2, border_radius=8)
-            upload_text = FONT.render("📁 Upload Image", True, WHITE)
+            upload_text = FONT.render(":) Upload Image", True, WHITE)
             upload_text_rect = upload_text.get_rect(center=upload_rect.center)
             screen.blit(upload_text, upload_text_rect)
 
