@@ -23,7 +23,6 @@ APP_HEIGHT = 550
 # ==========================================================
 # PATHS
 # ==========================================================
-PROJECT_ROOT = Path(r"C:\Users\tonyh\Documents\GitHub\Plant-Diseases-Full-Project")
 FX_DIR = PROJECT_ROOT / "fx"
 ALL_MODELS_DIR = PROJECT_ROOT / "All Models"
 TEST_DATASET_DIR = PROJECT_ROOT / "test dataset"
@@ -56,7 +55,7 @@ MODEL_CONFIG = {
         "preprocess": tf.keras.applications.inception_v3.preprocess_input
     },
     "DenseNet121": {
-        "size": (224, 224),
+        "size": (256, 256),
         "preprocess": tf.keras.applications.densenet.preprocess_input
     },
     "MobileNetV2": {
