@@ -37,8 +37,6 @@ MODEL_FILES = {
     "EfficientNetB3": ALL_MODELS_DIR / "best_finetuned_model.keras",
     "ResNet50": ALL_MODELS_DIR / "resnet50_finetuned_final.keras",
     "InceptionV3": ALL_MODELS_DIR / "inception_model.keras",
-    "DenseNet121": ALL_MODELS_DIR / "densenet_best_model.keras",
-    "MobileNetV2": ALL_MODELS_DIR / "MobileNetV2_finetuned.keras",
 }
 
 # Model input sizes and preprocessing functions
@@ -54,14 +52,6 @@ MODEL_CONFIG = {
     "InceptionV3": {
         "size": (299, 299),  # InceptionV3 uses 299x299
         "preprocess": tf.keras.applications.inception_v3.preprocess_input
-    },
-    "DenseNet121": {
-        "size": (224, 224),
-        "preprocess": tf.keras.applications.densenet.preprocess_input
-    },
-    "MobileNetV2": {
-        "size": (224, 224),
-        "preprocess": tf.keras.applications.mobilenet_v2.preprocess_input
     },
 }
 
@@ -84,7 +74,6 @@ GREEN = (60, 200, 120)
 RED = (220, 80, 80)
 BLUE = (80, 150, 220)
 YELLOW = (220, 180, 60)
-
 
 # ==========================================================
 # WINDOWS FILE DIALOG
@@ -136,7 +125,6 @@ def open_file_dialog():
         print(f"File dialog error: {e}")
 
     return None
-
 
 # ==========================================================
 # HELPERS
@@ -239,7 +227,7 @@ def main():
         bar_width, bar_height = 600, 14
         pygame.draw.rect(screen, WHITE, (bar_x, bar_y, bar_width, bar_height), 2)
         pygame.draw.rect(screen, GREEN,
-                         (bar_x + 2, bar_y + 2, int((bar_width - 4) * progress), bar_height - 4))
+                        (bar_x + 2, bar_y + 2, int((bar_width - 4) * progress), bar_height - 4))
 
         # Loading text
         loading_text = FONT.render("Loading Plant Disease Detection...", True, WHITE)
@@ -409,7 +397,7 @@ def main():
             # Upload button
             pygame.draw.rect(screen, BLUE, upload_rect, border_radius=8)
             pygame.draw.rect(screen, WHITE, upload_rect, 2, border_radius=8)
-            upload_text = FONT.render(": Upload Image", True, WHITE)
+            upload_text = FONT.render("📁 Upload Image", True, WHITE)
             upload_text_rect = upload_text.get_rect(center=upload_rect.center)
             screen.blit(upload_text, upload_text_rect)
 
@@ -470,16 +458,15 @@ def main():
 if __name__ == "__main__":
     # Suppress TensorFlow warnings
     import os
-
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-    print("=" * 70)
+    print("="*70)
     print("Plant Disease Detection - Multi-Model Application")
-    print("=" * 70)
+    print("="*70)
     print("\nSupported Models:")
     for name in MODEL_FILES.keys():
         print(f"  - {name}")
     print("\nStarting application...")
-    print("=" * 70)
+    print("="*70)
 
     main()
