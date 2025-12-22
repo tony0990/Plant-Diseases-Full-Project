@@ -23,7 +23,6 @@ APP_HEIGHT = 550
 # ==========================================================
 # PATHS
 # ==========================================================
-PROJECT_ROOT = Path(r"C:\Users\tonyh\Documents\GitHub\Plant-Diseases-Full-Project")
 FX_DIR = PROJECT_ROOT / "fx"
 ALL_MODELS_DIR = PROJECT_ROOT / "All Models"
 TEST_DATASET_DIR = PROJECT_ROOT / "test dataset"
